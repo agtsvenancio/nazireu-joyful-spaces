@@ -350,11 +350,20 @@ function Home() {
           </div>
         </div>
         <div className="border-t border-border/70">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-foreground/60 flex flex-col sm:flex-row gap-2 justify-between">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-foreground/60 flex flex-col sm:flex-row gap-2 justify-between items-center">
             <p>© {new Date().getFullYear()} Hotel Geriátrico Nazireu. Todos os direitos reservados.</p>
-            <p>Feito com cuidado em Sorocaba, SP.</p>
+            <div className="flex items-center gap-4">
+              <p>Feito com cuidado em Sorocaba, SP.</p>
+              <Link to="/admin/login" className="opacity-60 hover:opacity-100 hover:text-primary transition">
+                Acesso administrativo
+              </Link>
+            </div>
           </div>
         </div>
+      </footer>
+    </div>
+  );
+}
       </footer>
     </div>
   );
