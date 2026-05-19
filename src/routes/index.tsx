@@ -242,7 +242,7 @@ function Home() {
 
           <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90 group cursor-pointer">
             <img
-              src={about}
+              src={trustVideo}
               alt="Vídeo institucional"
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
