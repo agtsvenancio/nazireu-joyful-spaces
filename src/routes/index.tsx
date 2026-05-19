@@ -47,6 +47,7 @@ const pillars = [
 function Home() {
   const hero = useSiteImage("hero", heroFallback);
   const about = useSiteImage("about", aboutFallback);
+  const trustVideo = useSiteImage("trust-video", aboutFallback);
   return (
     <div className="bg-background text-foreground">
       <Navbar />
