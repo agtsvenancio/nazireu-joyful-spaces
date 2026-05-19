@@ -16,6 +16,7 @@ export const Route = createFileRoute("/admin/")({
 const FALLBACKS: Record<string, string> = {
   hero: heroFallback,
   about: aboutFallback,
+  "trust-video": aboutFallback,
   "amenity-suite": suiteFallback,
   "amenity-common": commonFallback,
   "amenity-garden": gardenFallback,
