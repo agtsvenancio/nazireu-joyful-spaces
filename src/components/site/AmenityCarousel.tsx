@@ -4,15 +4,21 @@ import suite from "@/assets/amenity-suite.jpg";
 import garden from "@/assets/amenity-garden.jpg";
 import common from "@/assets/amenity-common.jpg";
 import dining from "@/assets/amenity-dining.jpg";
-
-const slides = [
-  { src: suite, title: "Suítes confortáveis", desc: "Quartos amplos, adaptados e acolhedores para descanso pleno." },
-  { src: common, title: "Áreas comuns espaçosas", desc: "Ambientes claros para convivência, leitura e atividades." },
-  { src: garden, title: "Jardins verdes", desc: "Espaços ao ar livre para caminhadas e momentos de tranquilidade." },
-  { src: dining, title: "Refeitório elegante", desc: "Alimentação balanceada servida em ambiente sofisticado." },
-];
+import { useSiteImage } from "@/hooks/use-site-images";
 
 export function AmenityCarousel() {
+  const suiteUrl = useSiteImage("amenity-suite", suite);
+  const commonUrl = useSiteImage("amenity-common", common);
+  const gardenUrl = useSiteImage("amenity-garden", garden);
+  const diningUrl = useSiteImage("amenity-dining", dining);
+
+  const slides = [
+    { src: suiteUrl, title: "Suítes confortáveis", desc: "Quartos amplos, adaptados e acolhedores para descanso pleno." },
+    { src: commonUrl, title: "Áreas comuns espaçosas", desc: "Ambientes claros para convivência, leitura e atividades." },
+    { src: gardenUrl, title: "Jardins verdes", desc: "Espaços ao ar livre para caminhadas e momentos de tranquilidade." },
+    { src: diningUrl, title: "Refeitório elegante", desc: "Alimentação balanceada servida em ambiente sofisticado." },
+  ];
+
   const [i, setI] = useState(0);
   const prev = () => setI((p) => (p - 1 + slides.length) % slides.length);
   const next = () => setI((p) => (p + 1) % slides.length);
@@ -22,7 +28,7 @@ export function AmenityCarousel() {
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-lift bg-muted">
         {slides.map((s, idx) => (
           <img
-            key={s.src}
+            key={s.title}
             src={s.src}
             alt={s.title}
             loading="lazy"
@@ -58,7 +64,7 @@ export function AmenityCarousel() {
       <div className="mt-4 flex justify-center gap-2">
         {slides.map((s, idx) => (
           <button
-            key={s.src}
+            key={s.title}
             aria-label={`Ir para ${s.title}`}
             onClick={() => setI(idx)}
             className={`h-2 rounded-full transition-all ${
