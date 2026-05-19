@@ -364,7 +364,3 @@ function Home() {
     </div>
   );
 }
-      </footer>
-    </div>
-  );
-}
