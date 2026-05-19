@@ -45,10 +45,13 @@ const pillars = [
 ];
 
 function Home() {
+  const hero = useSiteImage("hero", heroFallback);
+  const about = useSiteImage("about", aboutFallback);
   return (
     <div className="bg-background text-foreground">
       <Navbar />
       <WhatsAppFab />
+
 
       {/* HERO */}
       <section id="home" className="relative min-h-[100svh] flex items-center">
