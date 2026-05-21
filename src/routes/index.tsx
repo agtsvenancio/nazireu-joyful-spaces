@@ -344,8 +344,7 @@ function Home() {
           <div>
             <h3 className="font-serif text-base mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /> (15) 99999-9999</li>
-              <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /> contato@nazireu.com.br</li>
+              <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +55 15 99790-0220</li>
               <li className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Sorocaba, SP</li>
             </ul>
           </div>
