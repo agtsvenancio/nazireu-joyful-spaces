@@ -13,7 +13,6 @@ import {
   PlayCircle,
   Phone,
   MapPin,
-  Mail,
   Facebook,
   Instagram,
 } from "lucide-react";
@@ -21,7 +20,7 @@ import { Link } from "@tanstack/react-router";
 import { Navbar, WHATSAPP_URL } from "@/components/site/Navbar";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { AmenityCarousel } from "@/components/site/AmenityCarousel";
-import { useSiteImage } from "@/hooks/use-site-images";
+import { useSiteImage, useSiteVideo, toYouTubeEmbed } from "@/hooks/use-site-images";
 import heroFallback from "@/assets/hero.jpg";
 import aboutFallback from "@/assets/about.jpg";
 
