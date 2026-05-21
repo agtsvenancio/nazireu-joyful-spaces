@@ -296,10 +296,9 @@ function Home() {
             Agendar Uma Visita via WhatsApp
           </a>
 
-          <div className="mt-16 grid sm:grid-cols-3 gap-6 text-left">
+          <div className="mt-16 grid sm:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
             {[
-              { icon: Phone, t: "Telefone", v: "(15) 99999-9999" },
-              { icon: Mail, t: "E-mail", v: "contato@nazireu.com.br" },
+              { icon: Phone, t: "Telefone", v: "+55 15 99790-0220" },
               { icon: MapPin, t: "Endereço", v: "Sorocaba, SP" },
             ].map((c) => (
               <div key={c.t} className="flex items-start gap-4 rounded-xl border border-border p-5 bg-card">
