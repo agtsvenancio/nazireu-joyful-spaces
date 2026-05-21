@@ -10,7 +10,7 @@ const links = [
 ];
 
 const WHATSAPP_URL =
-  "https://wa.me/5515999999999?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Hotel%20Geri%C3%A1trico%20Nazireu.";
+  "https://wa.me/5515997900220?text=oi%20vim%20atraves%20do%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20do%20nazireu";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
