@@ -29,6 +29,7 @@ type Row = {
   label: string;
   recommended_size: string;
   description: string | null;
+  video_url: string | null;
   updated_at: string;
 };
 
