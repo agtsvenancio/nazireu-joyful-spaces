@@ -47,6 +47,8 @@ function Home() {
   const hero = useSiteImage("hero", heroFallback);
   const about = useSiteImage("about", aboutFallback);
   const trustVideo = useSiteImage("trust-video", aboutFallback);
+  const trustVideoUrl = useSiteVideo("trust-video");
+  const trustEmbed = trustVideoUrl ? toYouTubeEmbed(trustVideoUrl) : null;
   return (
     <div className="bg-background text-foreground">
       <Navbar />
