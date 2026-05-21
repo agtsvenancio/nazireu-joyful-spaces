@@ -29,6 +29,7 @@ type Row = {
   label: string;
   recommended_size: string;
   description: string | null;
+  video_url: string | null;
   updated_at: string;
 };
 
@@ -97,6 +98,20 @@ function AdminDashboard() {
       await fetchRows();
     }
     setUploadingKey(null);
+  };
+
+  const handleSaveVideoUrl = async (key: string, value: string) => {
+    setMessage(null);
+    const { error } = await supabase
+      .from("site_images")
+      .update({ video_url: value || null, updated_at: new Date().toISOString() })
+      .eq("key", key);
+    if (error) {
+      setMessage(`Erro ao salvar vídeo: ${error.message}`);
+    } else {
+      setMessage("Link do vídeo atualizado!");
+      await fetchRows();
+    }
   };
 
   if (loading) {
@@ -201,6 +216,27 @@ function AdminDashboard() {
                       )}
                     </span>
                   </label>
+
+                  {row.key === "trust-video" && (
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                        Link do vídeo (YouTube)
+                      </label>
+                      <p className="text-xs text-muted-foreground mb-2">
+                        Cole a URL do YouTube. Deixe em branco para mostrar apenas a imagem.
+                      </p>
+                      <input
+                        type="url"
+                        defaultValue={row.video_url ?? ""}
+                        placeholder="https://www.youtube.com/watch?v=..."
+                        className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:border-primary"
+                        onBlur={(e) => {
+                          const v = e.target.value.trim();
+                          if (v !== (row.video_url ?? "")) handleSaveVideoUrl(row.key, v);
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </article>
             );

@@ -13,7 +13,6 @@ import {
   PlayCircle,
   Phone,
   MapPin,
-  Mail,
   Facebook,
   Instagram,
 } from "lucide-react";
@@ -21,7 +20,7 @@ import { Link } from "@tanstack/react-router";
 import { Navbar, WHATSAPP_URL } from "@/components/site/Navbar";
 import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 import { AmenityCarousel } from "@/components/site/AmenityCarousel";
-import { useSiteImage } from "@/hooks/use-site-images";
+import { useSiteImage, useSiteVideo, toYouTubeEmbed } from "@/hooks/use-site-images";
 import heroFallback from "@/assets/hero.jpg";
 import aboutFallback from "@/assets/about.jpg";
 
@@ -48,6 +47,8 @@ function Home() {
   const hero = useSiteImage("hero", heroFallback);
   const about = useSiteImage("about", aboutFallback);
   const trustVideo = useSiteImage("trust-video", aboutFallback);
+  const trustVideoUrl = useSiteVideo("trust-video");
+  const trustEmbed = trustVideoUrl ? toYouTubeEmbed(trustVideoUrl) : null;
   return (
     <div className="bg-background text-foreground">
       <Navbar />
@@ -240,24 +241,36 @@ function Home() {
             </div>
           </div>
 
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90 group cursor-pointer">
-            <img
-              src={trustVideo}
-              alt="Vídeo institucional"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-20 w-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lift group-hover:scale-110 transition-transform">
-                <PlayCircle size={44} />
+          {trustEmbed ? (
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90">
+              <iframe
+                src={trustEmbed}
+                title="Vídeo institucional Nazireu"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          ) : (
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90 group cursor-pointer">
+              <img
+                src={trustVideo}
+                alt="Vídeo institucional"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="h-20 w-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lift group-hover:scale-110 transition-transform">
+                  <PlayCircle size={44} />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p className="font-serif text-2xl">Conheça o Nazireu</p>
+                <p className="text-sm text-white/80">Vídeo institucional · 2 min</p>
               </div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="font-serif text-2xl">Conheça o Nazireu</p>
-              <p className="text-sm text-white/80">Vídeo institucional · 2 min</p>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -283,10 +296,9 @@ function Home() {
             Agendar Uma Visita via WhatsApp
           </a>
 
-          <div className="mt-16 grid sm:grid-cols-3 gap-6 text-left">
+          <div className="mt-16 grid sm:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
             {[
-              { icon: Phone, t: "Telefone", v: "(15) 99999-9999" },
-              { icon: Mail, t: "E-mail", v: "contato@nazireu.com.br" },
+              { icon: Phone, t: "Telefone", v: "+55 15 99790-0220" },
               { icon: MapPin, t: "Endereço", v: "Sorocaba, SP" },
             ].map((c) => (
               <div key={c.t} className="flex items-start gap-4 rounded-xl border border-border p-5 bg-card">
@@ -332,8 +344,7 @@ function Home() {
           <div>
             <h3 className="font-serif text-base mb-4">Contato</h3>
             <ul className="space-y-2 text-sm text-foreground/70">
-              <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /> (15) 99999-9999</li>
-              <li className="flex items-center gap-2"><Mail size={14} className="text-primary" /> contato@nazireu.com.br</li>
+              <li className="flex items-center gap-2"><Phone size={14} className="text-primary" /> +55 15 99790-0220</li>
               <li className="flex items-center gap-2"><MapPin size={14} className="text-primary" /> Sorocaba, SP</li>
             </ul>
           </div>
