@@ -241,24 +241,36 @@ function Home() {
             </div>
           </div>
 
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90 group cursor-pointer">
-            <img
-              src={trustVideo}
-              alt="Vídeo institucional"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-20 w-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lift group-hover:scale-110 transition-transform">
-                <PlayCircle size={44} />
+          {trustEmbed ? (
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90">
+              <iframe
+                src={trustEmbed}
+                title="Vídeo institucional Nazireu"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          ) : (
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lift bg-foreground/90 group cursor-pointer">
+              <img
+                src={trustVideo}
+                alt="Vídeo institucional"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="h-20 w-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lift group-hover:scale-110 transition-transform">
+                  <PlayCircle size={44} />
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p className="font-serif text-2xl">Conheça o Nazireu</p>
+                <p className="text-sm text-white/80">Vídeo institucional · 2 min</p>
               </div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="font-serif text-2xl">Conheça o Nazireu</p>
-              <p className="text-sm text-white/80">Vídeo institucional · 2 min</p>
-            </div>
-          </div>
+          )}
         </div>
       </section>
 
