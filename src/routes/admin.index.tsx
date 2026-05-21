@@ -49,14 +49,16 @@ function AdminDashboard() {
   }, []);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(async ({ data }) => {
       if (!data.session) {
         navigate({ to: "/admin/login" });
         return;
       }
+      await supabase.auth.refreshSession();
       fetchRows();
     });
   }, [navigate, fetchRows]);
+
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
