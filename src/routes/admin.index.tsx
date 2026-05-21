@@ -76,10 +76,11 @@ function AdminDashboard() {
       .upload(path, file, { cacheControl: "3600", upsert: false });
 
     if (upErr) {
-      setMessage(`Erro ao enviar: ${upErr.message}`);
+      setMessage(`Erro ao enviar (storage): ${upErr.message}`);
       setUploadingKey(null);
       return;
     }
+
 
     const { data: pub } = supabase.storage.from("site-images").getPublicUrl(path);
     const publicUrl = pub.publicUrl;
