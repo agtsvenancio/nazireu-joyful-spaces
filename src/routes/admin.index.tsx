@@ -100,6 +100,20 @@ function AdminDashboard() {
     setUploadingKey(null);
   };
 
+  const handleSaveVideoUrl = async (key: string, value: string) => {
+    setMessage(null);
+    const { error } = await supabase
+      .from("site_images")
+      .update({ video_url: value || null, updated_at: new Date().toISOString() })
+      .eq("key", key);
+    if (error) {
+      setMessage(`Erro ao salvar vídeo: ${error.message}`);
+    } else {
+      setMessage("Link do vídeo atualizado!");
+      await fetchRows();
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
