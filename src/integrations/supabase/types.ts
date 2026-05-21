@@ -22,6 +22,7 @@ export type Database = {
           recommended_size: string
           updated_at: string
           url: string
+          video_url: string | null
         }
         Insert: {
           description?: string | null
@@ -30,6 +31,7 @@ export type Database = {
           recommended_size: string
           updated_at?: string
           url: string
+          video_url?: string | null
         }
         Update: {
           description?: string | null
@@ -38,6 +40,7 @@ export type Database = {
           recommended_size?: string
           updated_at?: string
           url?: string
+          video_url?: string | null
         }
         Relationships: []
       }
