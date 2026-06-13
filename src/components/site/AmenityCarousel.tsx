@@ -30,7 +30,7 @@ export function AmenityCarousel() {
           <img
             key={s.title}
             src={s.src}
-            alt={s.title}
+            alt={s.alt}
             loading="lazy"
             width={1600}
             height={1000}
