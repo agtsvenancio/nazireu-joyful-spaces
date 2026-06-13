@@ -13,10 +13,10 @@ export function AmenityCarousel() {
   const diningUrl = useSiteImage("amenity-dining", dining);
 
   const slides = [
-    { src: suiteUrl, title: "Suítes confortáveis", desc: "Quartos amplos, adaptados e acolhedores para descanso pleno." },
-    { src: commonUrl, title: "Áreas comuns espaçosas", desc: "Ambientes claros para convivência, leitura e atividades." },
-    { src: gardenUrl, title: "Jardins verdes", desc: "Espaços ao ar livre para caminhadas e momentos de tranquilidade." },
-    { src: diningUrl, title: "Refeitório elegante", desc: "Alimentação balanceada servida em ambiente sofisticado." },
+    { src: suiteUrl, title: "Suítes confortáveis", desc: "Quartos amplos, adaptados e acolhedores para descanso pleno.", alt: "Suíte adaptada para idosos no Hotel Geriátrico Nazireu em Sorocaba" },
+    { src: commonUrl, title: "Áreas comuns espaçosas", desc: "Ambientes claros para convivência, leitura e atividades.", alt: "Sala de convivência da casa de repouso Nazireu em Sorocaba" },
+    { src: gardenUrl, title: "Jardins verdes", desc: "Espaços ao ar livre para caminhadas e momentos de tranquilidade.", alt: "Jardim do residencial para idosos Nazireu em Sorocaba" },
+    { src: diningUrl, title: "Refeitório elegante", desc: "Alimentação balanceada servida em ambiente sofisticado.", alt: "Refeitório do hotel geriátrico Nazireu em Sorocaba com cardápio balanceado" },
   ];
 
   const [i, setI] = useState(0);
@@ -30,7 +30,7 @@ export function AmenityCarousel() {
           <img
             key={s.title}
             src={s.src}
-            alt={s.title}
+            alt={s.alt}
             loading="lazy"
             width={1600}
             height={1000}

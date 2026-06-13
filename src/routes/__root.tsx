@@ -72,11 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hotel Geriátrico Nazireu — Cuidado, Dignidade e Alegria" },
-      { name: "description", content: "Há mais de 18 anos cuidando com amor, respeito e excelência. Conheça o Hotel Geriátrico Nazireu, referência em cuidado sênior em Sorocaba." },
-      { property: "og:title", content: "Hotel Geriátrico Nazireu" },
-      { property: "og:description", content: "Onde cada dia é uma celebração de vida, com respeito, alegria e cuidado." },
+      { name: "theme-color", content: "#0f766e" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "geo.region", content: "BR-SP" },
+      { name: "geo.placename", content: "Sorocaba" },
+      { property: "og:site_name", content: "Hotel Geriátrico Nazireu" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -94,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
